@@ -1,0 +1,91 @@
+{
+  "name": "cursor-wrap-changer",
+  "displayName": "W Wrap Column Changer（縦書き原稿用）",
+  "description": "縦書き原稿制作向けに、全角換算W単位でeditor.wordWrapColumnを即時設定・解除するCursor拡張機能",
+  "version": "1.0.0",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:plaintext",
+    "onLanguage:markdown"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "wrapColumn.set",
+        "title": "W Wrap Column: 設定"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "wrapColumn.set",
+        "key": "ctrl+alt+shift+l",
+        "mac": "cmd+alt+shift+l",
+        "when": "editorTextFocus && (resourceExtname == .txt || resourceExtname == .md)"
+      }
+    ],
+    "configuration": {
+      "title": "W Wrap Column Changer",
+      "properties": {
+        "cursorWrapChanger.fullwidthRatio": {
+          "type": "number",
+          "default": 2.0,
+          "minimum": 1.0,
+          "maximum": 3.0,
+          "description": "全角1文字を半角何文字分として扱うかの比率。フォントによって全角の描画幅が半角の2倍にならない場合、見た目通りのWになるよう調整してください（例: ヒラギノ明朝 ProNの場合は1.66程度）"
+        },
+        "cursorWrapChanger.preset1": {
+          "type": "number",
+          "default": 0,
+          "minimum": 0,
+          "maximum": 999,
+          "description": "プリセット1のW値（0=未設定。1〜999の整数でW値を指定）"
+        },
+        "cursorWrapChanger.preset2": {
+          "type": "number",
+          "default": 0,
+          "minimum": 0,
+          "maximum": 999,
+          "description": "プリセット2のW値（0=未設定。1〜999の整数でW値を指定）"
+        },
+        "cursorWrapChanger.preset3": {
+          "type": "number",
+          "default": 0,
+          "minimum": 0,
+          "maximum": 999,
+          "description": "プリセット3のW値（0=未設定。1〜999の整数でW値を指定）"
+        },
+        "cursorWrapChanger.preset4": {
+          "type": "number",
+          "default": 0,
+          "minimum": 0,
+          "maximum": 999,
+          "description": "プリセット4のW値（0=未設定。1〜999の整数でW値を指定）"
+        },
+        "cursorWrapChanger.preset5": {
+          "type": "number",
+          "default": 0,
+          "minimum": 0,
+          "maximum": 999,
+          "description": "プリセット5のW値（0=未設定。1〜999の整数でW値を指定）"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0"
+  }
+}
