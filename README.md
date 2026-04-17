@@ -1,6 +1,6 @@
 # W Wrap Column Changer（1行文字数を変更）
 
-紙の原稿執筆・編集向けに、全角換算W単位で `editor.wordWrapColumn` を即時設定・解除するCursor拡張機能です。
+紙の原稿執筆・編集向けに、全角換算W単位で `editor.wordWrapColumn` を即時設定・解除するCursor/VSCode拡張機能です。
 
 簡単な操作で「1行17W」「1行20W」「1行33W」など、1行の文字数を好きな値に切り替えられます。
 
